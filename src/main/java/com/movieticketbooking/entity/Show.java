@@ -4,9 +4,13 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "show_table")
+@Getter
+@Setter
 public class Show {
 
     @Id @GeneratedValue

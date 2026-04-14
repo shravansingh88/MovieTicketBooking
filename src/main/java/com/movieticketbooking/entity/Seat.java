@@ -1,10 +1,15 @@
 package com.movieticketbooking.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "seat",
        uniqueConstraints = @UniqueConstraint(columnNames = {"show_id", "seat_number"}))
+@Getter
+@Setter
 public class Seat {
 
     @Id
