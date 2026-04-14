@@ -4,11 +4,12 @@ import com.movieticketbooking.service.BookingService;
 
 import com.movieticketbooking.dto.BookingRequest;
 import com.movieticketbooking.entity.Booking;
-import com.movieticketbooking.Seat;
-import com.movieticketbooking.Show;
+import com.movieticketbooking.entity.Seat;
+import com.movieticketbooking.entity.Show;
 import com.movieticketbooking.repository.BookingRepository;
 import com.movieticketbooking.repository.ShowRepository;
 
+import com.movieticketbooking.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class BookingServiceImpl implements BookingService {
                 .orElseThrow(() -> new RuntimeException("Show not found"));
 
         List<Seat> seats = show.getSeats().stream()
-                .filter(s -> request.getSeatIds().contains(s.getId()) && s.isAvailable())
+                .filter(s -> request.getSeatIds().contains(s.getId()) && s.getAvailable())
                 .toList();
 
         if (seats.size() != request.getSeatIds().size()) {

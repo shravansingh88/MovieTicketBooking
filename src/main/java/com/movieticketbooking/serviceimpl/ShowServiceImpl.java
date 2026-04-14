@@ -25,7 +25,7 @@ public class ShowServiceImpl implements ShowService {
                 .map(s -> new ShowDTO(
                         s.getTheatre().getName(),
                         s.getStartTime(),
-                        s.getSeats().stream().filter(Seat::isAvailable).count()
+                        s.getSeats().stream().filter(Seat::getAvailable).count()
                 ))
                 .toList();
     }
