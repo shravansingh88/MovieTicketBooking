@@ -20,9 +20,11 @@ public class Show {
     private Movie movie;
 
     @ManyToOne
+    @JoinColumn(name = "theatre_id")
     private Theatre theatre;
 
     private LocalDate date;
+    @Column(columnDefinition = "TIME")
     private LocalTime startTime;
     private double price;
 
